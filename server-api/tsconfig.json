@@ -1,0 +1,10 @@
+{
+    "include": ["src"],
+    "exclude": ["build","node modules"],
+    "compilerOptions": {
+        "moduleResolution": "Node",
+        "outDir": "build",
+        "target": "ES6",
+        "module": "CommonJS"
+    }
+}
