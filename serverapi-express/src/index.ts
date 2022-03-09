@@ -36,13 +36,15 @@ app.post('/login', (request, response) => {
         password: "123"
     }
     if (api_request.email_address === expected_request.email_address &&api_request.password === expected_request.password) {
-        const api_response = {is_authenticated : true }
+        // const api_response = {is_authenticated : true }
+        const api_response= ("authentication is successed")
         response.status(200).send(api_response)
-        
+        console.log(api_response)
     } else {
-        const api_response = {is_authenticated : false }
+        // const api_response = {is_authenticated : false }
+        const api_response= ("authentication is failed")
         response.status(401).send(api_response)
-        
+        console.log(api_response)
     }
 })
 

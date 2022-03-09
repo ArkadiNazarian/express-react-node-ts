@@ -14,7 +14,7 @@ export function Container() {
     useEffect(() => {
         axios({
             method: "GET",
-            url: "http://localhost:8080/echo",
+            url: "http://localhost:8080/health",
             responseType: "json"
         })
             .then((response) => {
@@ -48,8 +48,8 @@ export function Container() {
         //     headers: { "content-type": "application/json" }
         // })
         //     .then((api_response) => {
-        //         console.log(api_response.data)
-        //         alert(api_response.data)
+        //         console.log(api_response)
+        //         alert(api_response)
         //     })
         fetch("http://localhost:8080/login", {
             method: "POST",
@@ -61,7 +61,8 @@ export function Container() {
                 password: values.password
             })
         })
-            .then((response) => response.json())
+            .then((response) => response.text())
+            // .then((response) => response.json())
             .then((api_response) => {
                 console.log(api_response)
                 alert(api_response)
