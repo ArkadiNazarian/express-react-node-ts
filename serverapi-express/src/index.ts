@@ -30,19 +30,19 @@ app.get('/health', (request, response) => {
 
 
 app.post('/login', (request, response) => {
-    const api_request= request.body
+    const api_request = request.body
     const expected_request = {
         email_address: "first.last@company.xyz",
         password: "123"
     }
-    if (api_request.email_address === expected_request.email_address &&api_request.password === expected_request.password) {
+    if (api_request.email_address === expected_request.email_address && api_request.password === expected_request.password) {
         // const api_response = {is_authenticated : true }
-        const api_response= ("authentication is successed")
+        const api_response = ("authentication is succeed")
         response.status(200).send(api_response)
         console.log(api_response)
     } else {
         // const api_response = {is_authenticated : false }
-        const api_response= ("authentication is failed")
+        const api_response = ("authentication is failed")
         response.status(401).send(api_response)
         console.log(api_response)
     }
