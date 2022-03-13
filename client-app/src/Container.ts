@@ -38,39 +38,39 @@ export function Container() {
     const action_submit = (values: IFormvalues) => {
         set_current_email(values.email)
         set_current_password(values.password)
-        axios({
-            method: "POST",
-            url: "http://localhost:8080/login",
-            data: {
-                email_address: values.email,
-                password: values.password
-            },
-            headers: { "content-type": "application/json" }
-        })
-            .then((api_response) => {
-                console.log(api_response)
-                alert(api_response)
-            })
-            .catch((server_error)=>{
-                  console.log(server_error.response.status)
-                  alert(server_error.response.data)
-            })
-        // fetch("http://localhost:8080/login", {
+        // axios({
         //     method: "POST",
-        //     headers: {
-        //         "content-type": "application/json"
-        //     },
-        //     body: JSON.stringify({
+        //     url: "http://localhost:8080/login",
+        //     data: {
         //         email_address: values.email,
         //         password: values.password
-        //     })
+        //     },
+        //     headers: { "content-type": "application/json" }
         // })
-        //     .then((response) => response.text())
-        //     // .then((response) => response.json())
         //     .then((api_response) => {
         //         console.log(api_response)
         //         alert(api_response)
         //     })
+        //     .catch((server_error)=>{
+        //           console.log(server_error.response.status)
+        //           alert(server_error.response.data)
+        //     })
+        fetch("http://localhost:8080/login", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({
+                email_address: values.email,
+                password: values.password
+            })
+        })
+            .then((response) => response.text())
+            // .then((response) => response.json())
+            .then((api_response) => {
+                console.log(api_response)
+                alert(api_response)
+            })
     }
 
     const formik = useFormik({

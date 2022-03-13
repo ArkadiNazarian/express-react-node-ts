@@ -6,6 +6,7 @@ export function View(props: Iprops) {
             <form onSubmit={props.action_submit}>
                 <div>
                     <input
+                        data-testid="email-input"
                         name="email"
                         type="email"
                         value={props.form_data.email}
@@ -20,6 +21,7 @@ export function View(props: Iprops) {
                 </div>
                 <div>
                     <input
+                        id="password-input"
                         name="password"
                         type="password"
                         value={props.form_data.password}
@@ -33,7 +35,7 @@ export function View(props: Iprops) {
                     }
                 </div>
                 <div>
-                    <button type="submit">Submit</button>
+                    <button id='submit-button' type="submit">Submit</button>
                 </div>
             </form>
             <h1>Version: {props.version}</h1>
