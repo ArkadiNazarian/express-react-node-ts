@@ -21,7 +21,7 @@ export function View(props: Iprops) {
                 </div>
                 <div>
                     <input
-                        id="password-input"
+                        data-testid="password-input"
                         name="password"
                         type="password"
                         value={props.form_data.password}
@@ -35,7 +35,7 @@ export function View(props: Iprops) {
                     }
                 </div>
                 <div>
-                    <button id='submit-button' type="submit">Submit</button>
+                    <button data-testid='submit-btn' type="submit">Submit</button>
                 </div>
             </form>
             <h1>Version: {props.version}</h1>
