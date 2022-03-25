@@ -23,7 +23,8 @@ app.get('/health', (request, response) => {
     const date = new Date();
     let api_resault = {
         conntected: true,
-        last_check: date
+        last_check_time: date.toLocaleTimeString(),
+        last_check_date: date.toLocaleDateString()
     }
     response.send(api_resault)
 })
@@ -37,12 +38,12 @@ app.post('/login', (request, response) => {
     }
     if (api_request.email_address === expected_request.email_address && api_request.password === expected_request.password) {
         // const api_response = {is_authenticated : true }
-        const api_response = ("authentication is succeed")
+        const api_response = "authentication is succeed"
         response.status(200).send(api_response)
         console.log(api_response)
     } else {
         // const api_response = {is_authenticated : false }
-        const api_response = ("authentication is failed")
+        const api_response = "authentication is failed"
         response.status(401).send(api_response)
         console.log(api_response)
     }

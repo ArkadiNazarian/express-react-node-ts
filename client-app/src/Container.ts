@@ -12,16 +12,28 @@ export function Container() {
     const [current_authentication, set_current_authentication] = useState("");
 
     useEffect(() => {
-        axios({
-            method: "GET",
-            url: "http://localhost:8080/health",
-            responseType: "json"
-        })
-            .then((response) => {
-                let api_response = response.data
-                console.log(api_response)
-                set_current_version(api_response.last_check)
+        fetch("http://localhost:8080/lastcheck",
+            {
+                method: "GET"
             })
+            .then((response) => response.json())
+            .then((api_response) => {
+                console.log(api_response.lastcheck)
+                set_current_version(api_response.lastcheck)
+                // console.log(api_response.last_check_time,api_response.last_check_date)
+                // set_current_version({check_time:api_response.last_check_time,check_date:api_response.last_check_date})
+            })
+            .catch((reason)=>console.log(reason))
+        // axios({
+        //     method: "GET",
+        //     url: "http://localhost:8080/health",
+        //     responseType: "json"
+        // })
+        //     .then((response) => {
+        //         let api_response = response.data
+        //         console.log(api_response)
+        //         set_current_version(api_response.last_check)
+        //     })
     }, [])
 
 
